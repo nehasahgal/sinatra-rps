@@ -10,12 +10,18 @@ get("/") do
 end
 
 get("/rock") do
- # @ourplay = ["rock", "paper", "scissors"]
- # @theirplay = ["rock", "paper", "scissors"]
+ plays = ["rock", "paper", "scissors"]
+ 
+ @ourplay = "rock"
+ @theirplay = plays.sample(1)
 
- # if @ourplay == @theirplay
- #   @outcome = "We lost!"
-
+ if @theirplay == "rock"
+  outcome = @tie
+ elsif @theirplay == "scissors"
+  outcome = @win
+ elsif @theirplay == "paper"
+  outcome = @lose
+ end
    
  erb(:rock)
 end
