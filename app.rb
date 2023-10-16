@@ -13,21 +13,49 @@ get("/rock") do
  plays = ["rock", "paper", "scissors"]
  
  @ourplay = "rock"
- @theirplay = plays.sample(1)
+ @theirplay = plays.sample
 
  if @theirplay == "rock"
-  outcome = @tie
+  @outcome = "We tied!"
  elsif @theirplay == "scissors"
-  outcome = @win
+  @outcome = "We won!"
  elsif @theirplay == "paper"
-  outcome = @lose
+  @outcome = "We lost!"
  end
    
  erb(:rock)
 end
 
 get("/paper") do
-end
+  plays = ["rock", "paper", "scissors"]
+ 
+  @ourplay = "paper"
+  @theirplay = plays.sample
+ 
+  if @theirplay == "rock"
+   @outcome = "We won!"
+  elsif @theirplay == "scissors"
+   @outcome = "We lost!"
+  elsif @theirplay == "paper"
+   @outcome = "We tied!"
+  end
+    
+  erb(:paper)
+ end
 
 get("/scissors") do
-end
+  plays = ["rock", "paper", "scissors"]
+ 
+  @ourplay = "scissors"
+  @theirplay = plays.sample
+ 
+  if @theirplay == "rock"
+   @outcome = "We lost!"
+  elsif @theirplay == "scissors"
+   @outcome = "We tied!"
+  elsif @theirplay == "paper"
+   @outcome = "We won!"
+  end
+    
+  erb(:scissors)
+ end
